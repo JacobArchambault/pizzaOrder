@@ -28,11 +28,6 @@ app.get('/orders', function (req, res) {
 });
 
 app.post('/handleform', function (req, res) {    // handle a post request
-   var reqBody = req.body;
-   console.log(reqBody);         // print form data to console for troubleshooting
-   var name = req.body.fullname;  // retrieve name=value pairs from the html form
-   var addr = req.body.address;
-   var size = req.body.size;
    var numberOfToppings = 0;
    var toppings = req.body.toppings;  // might or mignt not be an array of toppings
 
@@ -45,11 +40,9 @@ app.post('/handleform', function (req, res) {    // handle a post request
       toppings += ", add $1.22";
    }
 
-   var price = '$' + (parseInt(size) + numberOfToppings * 1.22).toFixed(2);  // calculat total price
-
    res.render('summary', {
-      page_title: "summary", name: name, address: addr, diameter: size,
-      toppings: toppings, delivery: req.body.deliver, price: price
+      page_title: "summary", name: req.body.fullname, address: req.body.address, diameter: req.body.size,
+      toppings: toppings, delivery: req.body.deliver, price: `$${(parseInt(req.body.size) + numberOfToppings * 1.22).toFixed(2)}`
    });
 });
 
