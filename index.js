@@ -12,20 +12,16 @@ app.set('view engine', 'handlebars');
 
 app.use(express.static('public'));
 
-var items = [
-   { size: "8 inch pizza", toppings: 'Mushrooms', price: '$9.50' },
-   { size: "16 inch pizza", toppings: 'Mushrooms & Sausage', price: '$19.00' },
-   { size: "12 inch pizza", toppings: 'Pepperoni', price: '$13.50' },
-   { size: "20 inch pizza", toppings: 'Mushrooms, Sausage, Pepperoni', price: '$24.50' }
-];
+app.get('/', (_req, res) => res.render('welcome', {
+   page_title: "Welcome", pizzas: [
+      { size: "8 inch pizza", toppings: 'Mushrooms', price: '$9.50' },
+      { size: "16 inch pizza", toppings: 'Mushrooms & Sausage', price: '$19.00' },
+      { size: "12 inch pizza", toppings: 'Pepperoni', price: '$13.50' },
+      { size: "20 inch pizza", toppings: 'Mushrooms, Sausage, Pepperoni', price: '$24.50' }
+   ]
+}));
 
-app.get('/', function (req, res) {
-   res.render('welcome', { page_title: "welcome page", pizzas: items });
-});
-
-app.get('/orders', function (req, res) {
-   res.render('orderform', { page_title: 'order page' });
-});
+app.get('/orders', (_req, res) => res.render('orderform', { page_title: 'order page' }));
 
 app.post('/handleform', function (req, res) {    // handle a post request
    var numberOfToppings = 0;
