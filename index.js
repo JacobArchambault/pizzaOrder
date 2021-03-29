@@ -1,12 +1,10 @@
 // the app
-var express = require('express');
-var path = require('path');
+import express from 'express';
+
+import exphbs from 'express-handlebars';
 var app = express();
 
-var bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({ extended: true }));
-
-var exphbs = require('express-handlebars');
+app.use(express.urlencoded({ extended: true }));
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
@@ -23,15 +21,15 @@ app.get('/', (_req, res) => res.render('welcome', {
 
 app.get('/orders', (_req, res) => res.render('orderform', { page_title: 'order page' }));
 
-app.post('/handleform', function (req, res) {    // handle a post request
+app.post('/handleform', (req, res) => {
    var numberOfToppings = 0;
-   var toppings = req.body.toppings;  // might or mignt not be an array of toppings
+   var toppings = req.body.toppings; // might or mignt not be an array of toppings
 
-   if (Array.isArray(toppings)) {    // we have an array of toppings
-      numberOfToppings = toppings.length
-      var toppings = toppings.join(", ") + ', add $' + numberOfToppings * 1.22;  // convert array to string
+   if (Array.isArray(toppings)) { // we have an array of toppings
+      numberOfToppings = toppings.length;
+      var toppings = toppings.join(", ") + ', add $' + numberOfToppings * 1.22; // convert array to string
    }
-   else if (toppings) {             // topping is defined, but as a single string value
+   else if (toppings) { // topping is defined, but as a single string value
       numberOfToppings = 1;
       toppings += ", add $1.22";
    }
