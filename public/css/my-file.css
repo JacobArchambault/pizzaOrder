@@ -4,3 +4,7 @@
     grid-column-gap: 1em;
     width: max-content;
 }
+
+input, label {
+    margin: auto auto 1em 0;
+}
