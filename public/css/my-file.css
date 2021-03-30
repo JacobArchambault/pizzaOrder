@@ -1,0 +1,6 @@
+.order-section {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-column-gap: 1em;
+    width: max-content;
+}

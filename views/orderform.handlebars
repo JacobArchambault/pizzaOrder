@@ -1,28 +1,34 @@
 <h2>Order Form</h2>
 
-<form method="post" action="handleform" style="display: grid;">
-    <label for="fullname">Order name: </label><input type="text" name="fullname" placeholder="Enter full name">
-    <label for="Address">Address:</label><input type="text" name="address" placeholder="Enter your address">
+<form method="post" action="handleform">
+    <section class="order-section">
+        <label for="fullname">Order name: </label><input type="text" name="fullname" placeholder="Enter full name">
+        <label for="Address">Address:</label><input type="text" name="address" placeholder="Enter your address">
+    </section>
 
     <h3>Pizza size:</h3>
-    <input type="radio" name="size" value="20" checked></input>
-    <label for="size">20 inch, $20</label>
-    <input type="radio" name="size" value="16"></input>
-    <label for="size">16 inch, $16</label>
-    <input type="radio" name="size" value="12"></input>
-    <label for="size">12 inch, $12</label>
-    <input type="radio" name="size" value="8"></input>
-    <label for="size">8 inch, $8</label>
+    <section id="pizza-size" class="order-section">
+        <input type="radio" name="size" value="20" checked></input>
+        <label for="size">20 inch, $20</label>
+        <input type="radio" name="size" value="16"></input>
+        <label for="size">16 inch, $16</label>
+        <input type="radio" name="size" value="12"></input>
+        <label for="size">12 inch, $12</label>
+        <input type="radio" name="size" value="8"></input>
+        <label for="size">8 inch, $8</label>
+    </section>
 
     <h3>Toppings:</h3>
-    <input type="checkbox" name="toppings" value="mushroom"><label for="mushroom">Mushroom, add $1.22</label>
-    <input type="checkbox" name="toppings" value="sausage"> <label for="sausage">Sausage, add $1.22</label>
-    <input type="checkbox" name="toppings" value="pepperoni"><label for="pepperoni">Pepperoni, add $1.22</label>
-
+    <section class="order-section">
+        <input type="checkbox" name="toppings" value="mushroom"><label for="mushroom">Mushroom, add $1.22</label>
+        <input type="checkbox" name="toppings" value="sausage"> <label for="sausage">Sausage, add $1.22</label>
+        <input type="checkbox" name="toppings" value="pepperoni"><label for="pepperoni">Pepperoni, add $1.22</label>
+    </section>
 
     <h3>Delivery method:</h3>
-    <input type="radio" name="deliver" value="Delivery" checked><label for="Delivery">Delivery</label>
-    <input type="radio" name="deliver" value="Pick Up"><label for="Pick up">In Store Pickup</label>
-
+    <section class="order-section">
+        <input type="radio" name="deliver" value="Delivery" checked><label for="Delivery">Delivery</label>
+        <input type="radio" name="deliver" value="Pick Up"><label for="Pick up">In Store Pickup</label>
+    </section>
     <button type="submit" class="btn btn-success">Submit order</button>
 </form>
