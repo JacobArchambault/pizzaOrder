@@ -4,8 +4,8 @@
     <label for="fullname">Order name: </label><input type="text" name="fullname" placeholder="Enter full name">
     <label for="Address">Address:</label><input type="text" name="address" placeholder="Enter your address">
 
-    <p>Pizza size:</p>
-    <input type="radio" name="size" value="20"></input>
+    <h3>Pizza size:</h3>
+    <input type="radio" name="size" value="20" checked></input>
     <label for="size">20 inch, $20</label>
     <input type="radio" name="size" value="16"></input>
     <label for="size">16 inch, $16</label>
@@ -14,16 +14,14 @@
     <input type="radio" name="size" value="8"></input>
     <label for="size">8 inch, $8</label>
 
-    <p>Add toppings...<br>
-        <input type="checkbox" name="toppings" value="mushroom"> Mushroom, add $1.22 <br>
-        <input type="checkbox" name="toppings" value="sausage"> Sausage, add $1.22<br>
-        <input type="checkbox" name="toppings" value="pepperoni"> Pepperoni, add $1.22
-    </p>
+    <h3>Add toppings</h3>
+    <input type="checkbox" name="toppings" value="mushroom"><label for="mushroom">Mushroom, add $1.22</label>
+    <input type="checkbox" name="toppings" value="sausage"> <label for="sausage">Sausage, add $1.22</label>
+    <input type="checkbox" name="toppings" value="pepperoni"><label for="pepperoni">Pepperoni, add $1.22</label>
 
 
-    <p><input type="radio" name="deliver" value="Pick Up" checked>In Store Pickup <br>
-        <input type="radio" name="deliver" value="Delivery">Delivery
-    </p>
+    <input type="radio" name="deliver" value="Delivery" checked><label for="Delivery">Delivery</label>
+    <input type="radio" name="deliver" value="Pick Up"><label for="Pick up">In Store Pickup</label>
 
-    <p><button type="submit">Submit Form</button></p>
+    <button type="submit" class="btn btn-success">Submit order</button>
 </form>
